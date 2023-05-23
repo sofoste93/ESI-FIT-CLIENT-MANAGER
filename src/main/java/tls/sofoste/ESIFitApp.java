@@ -212,7 +212,6 @@ public class ESIFitApp {
                 "\t\t\t\t\t█▀▄▀█ ▄▀▄ █ █▄ █ ▄ █▀▄▀█ █▀▀ █▄ █ █ █\n" +
                 "\t\t\t\t\t█ ▀ █ █▀█ █ █ ▀█   █ ▀ █ ██▄ █ ▀█ █▄█");
         System.out.println("\t\t\t┌" + "─".repeat(MAX_CHAR) + "┐");
-<<<<<<< HEAD
         System.out.println("\t\t\t| \t\t\t\tESI-Fit Client Manager" + " ".repeat(MAX_CHAR - 37)+ "|");
         System.out.println("\t\t\t├" + "─".repeat(MAX_CHAR) + "┤");
         System.out.println("\t\t\t| 1. Register Client" + " ".repeat(MAX_CHAR - 20) + " "+ "|");
@@ -226,7 +225,6 @@ public class ESIFitApp {
         System.out.println("\t\t\t| 9. Exit" + " ".repeat(MAX_CHAR - 8) + "|");
         System.out.println("\t\t\t└" + "─".repeat(MAX_CHAR) + "┘");
         System.out.println("Enter your choice: ");
-=======
         System.out.println("\t\t\t| \t\t\t\tESI-Fit Client Manager" + " ".repeat(MAX_CHAR - 37) + "|");
         System.out.println("\t\t\t├" + "─".repeat(MAX_CHAR) + "┤");
         System.out.println("\t\t\t| 1. Kunde registrieren" + " ".repeat(MAX_CHAR - 22) + "|");
@@ -240,6 +238,5 @@ public class ESIFitApp {
         System.out.println("\t\t\t| 9. Beenden" + " ".repeat(MAX_CHAR - 11) + "|");
         System.out.println("\t\t\t└" + "─".repeat(MAX_CHAR) + "┘");
         System.out.println("Geben Sie einen Befehl ein: ");
->>>>>>> e8864e7 (Menu translated into german)
     }
 }
