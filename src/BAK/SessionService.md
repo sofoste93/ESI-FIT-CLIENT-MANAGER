@@ -4,35 +4,39 @@ import tls.sofoste.model.Session;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class SessionService {
-    private List<Session> sessions = new ArrayList<>();
+private Map<String, List<Session>> clientSessions = new HashMap<>();
 
     public Session startSession(String clientId) {
         LocalDateTime now = LocalDateTime.now();
         Session newSession = new Session(clientId, now, null);
-        sessions.add(newSession);
+        clientSessions.computeIfAbsent(clientId, k -> new ArrayList<>()).add(newSession);
         return newSession;
     }
-
     public void endSession(String clientId) {
-        for (int i = sessions.size() - 1; i >= 0; i--) {
-            Session session = sessions.get(i);
-            if (session.getClientId().equals(clientId) && session.getLogoutTime() == null) {
-                session.setLogoutTime(LocalDateTime.now());
-                break;
-            }
+        List<Session> sessions = clientSessions.get(clientId);
+        if (sessions != null && !sessions.isEmpty()) {
+            Session lastSession = sessions.get(sessions.size() - 1);
+            lastSession.setLogoutTime(LocalDateTime.now());
         }
     }
-
     public List<Session> getClientSessions(String clientId) {
-        List<Session> clientSessions = new ArrayList<>();
-        for (Session session : sessions) {
-            if (session.getClientId().equals(clientId)) {
-                clientSessions.add(session);
-            }
+        return clientSessions.get(clientId);
+    }
+
+    public void updateSession(String clientId, LocalDateTime startTime, LocalDateTime endTime) {
+        List<Session> sessions = clientSessions.get(clientId);
+        if (sessions != null && !sessions.isEmpty()) {
+            Session lastSession = sessions.get(sessions.size() - 1);
+            lastSession.setLoginTime(startTime);
+            lastSession.setLogoutTime(endTime);
         }
-        return clientSessions;
+    }
+    public void deleteClientSessions(String clientId) {
+        clientSessions.remove(clientId);
     }
 }
