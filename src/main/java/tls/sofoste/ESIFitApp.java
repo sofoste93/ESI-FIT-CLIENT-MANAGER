@@ -66,7 +66,7 @@ public class ESIFitApp {
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Ungültige Eingabe. Bitte versuchen Sie es erneut.");
-                fetchUserInput.nextLine(); // consume newline left-over
+                fetchUserInput.nextLine();
             }
         }
     }
@@ -119,9 +119,9 @@ public class ESIFitApp {
                     "└──────────────────────────────────────────────────┘");
         } else {
             for (Client client : clients) {
-                System.out.println("Kunden-ID: " + client.getId()
-                        + " | " + client.getFirstName()
-                        + " " + client.getLastName());
+                System.out.println("|Kunden-ID: " + client.getId()
+                        + " |Name: " + client.getFirstName()
+                        + ", " + client.getLastName());
             }
         }
     }
@@ -132,11 +132,11 @@ public class ESIFitApp {
         String clientId = fetchUserInput.nextLine();
         Client client = clientController.getClient(clientId);
         if (client != null) {
-            System.out.println("┌" + "─".repeat(MAX_CHAR * 2) + "┐");
-            System.out.printf("| %-10s: %-80s |\n", "Kunden-ID", client.getId());
-            System.out.printf("| %-10s: %-80s |\n", "Vorname", client.getFirstName());
-            System.out.printf("| %-10s: %-80s |\n", "Nachname", client.getLastName());
-            System.out.println("└" + "─".repeat(MAX_CHAR * 2) + "┘");
+            System.out.println("┌──────────────────────────────────────────────────────────────────────────");
+            System.out.printf("| %-10s: %-60s |\n", "Kunden-ID", client.getId());
+            System.out.printf("| %-10s: %-60s |\n", "Vorname", client.getFirstName());
+            System.out.printf("| %-10s: %-60s |\n", "Nachname", client.getLastName());
+            System.out.println("└──────────────────────────────────────────────────────────────────────────");
         } else {
             System.out.println("┌──────────────────────────────────────────────────┐");
             System.out.println("\t[!]-Kein Kunde mit ID: " + clientId + " gefunden");
