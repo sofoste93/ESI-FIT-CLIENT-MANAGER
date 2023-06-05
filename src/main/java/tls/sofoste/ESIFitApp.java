@@ -16,8 +16,8 @@ public class ESIFitApp {
     private static final int MAX_CHAR = 50;
     private static final ClientController clientController = new ClientController();
     private static final SessionController sessionController = new SessionController();
-    private static ClientService clientService = new ClientService();
-    private static SessionService sessionService = new SessionService();
+    private static final ClientService clientService = new ClientService();
+    private static final SessionService sessionService = new SessionService();
     private static final Scanner fetchUserInput = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -26,43 +26,22 @@ public class ESIFitApp {
         boolean exit = false;
 
         while (!exit) {
-            // Display menu and read user userChoice
             displayMainMenu();
             try {
                 int userChoice = fetchUserInput.nextInt();
                 fetchUserInput.nextLine();
 
-                // Perform action based on user userChoice
                 switch (userChoice) {
-                    case 1:
-                        registerClient();
-                        break;
-                    case 2:
-                        logIn();
-                        break;
-                    case 3:
-                        logOut();
-                        break;
-                    case 4:
-                        displayClientInformation();
-                        break;
-                    case 5:
-                        displayClientSessions();
-                        break;
-                    case 6:
-                        deleteClient();
-                        break;
-                    case 7:
-                        listAllClients();
-                        break;
-                    case 8:
-                        updateClientSession();
-                        break;
-                    case 9:
-                        exit = true;
-                        break;
-                    default:
-                        System.out.println("Ungültige Option. Bitte versuchen Sie es erneut.");
+                    case 1 -> registerClient();
+                    case 2 -> logIn();
+                    case 3 -> logOut();
+                    case 4 -> displayClientInformation();
+                    case 5 -> displayClientSessions();
+                    case 6 -> deleteClient();
+                    case 7 -> listAllClients();
+                    case 8 -> updateClientSession();
+                    case 9 -> exit = true;
+                    default -> System.out.println("Ungültige Option. Bitte versuchen Sie es erneut.");
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Ungültige Eingabe. Bitte versuchen Sie es erneut.");
@@ -85,7 +64,7 @@ public class ESIFitApp {
         System.out.print("Kunden-ID eingeben: ");
         String clientId = fetchUserInput.nextLine();
         if (clientController.getClient(clientId) != null) {
-            Session newSession = sessionController.startSession(clientId);
+            sessionController.startSession(clientId);
             System.out.println("Sitzung für Kunden mit der ID: " + clientId + " gestartet!");
         } else {
             System.out.println("Der Kunde mit der ID: " + clientId + " existiert nicht.\n " +
@@ -114,9 +93,10 @@ public class ESIFitApp {
     private static void listAllClients() {
         List<Client> clients = clientController.getAllClients();
         if (clients.isEmpty()) {
-            System.out.println("┌──────────────────────────────────────────────────┐" +
-                    "\n\tEs sind noch keine Kunden registriert.\n" +
-                    "└──────────────────────────────────────────────────┘");
+            System.out.println("""
+                    ┌──────────────────────────────────────────────────┐
+                    \tEs sind noch keine Kunden registriert.
+                    └──────────────────────────────────────────────────┘""");
         } else {
             for (Client client : clients) {
                 System.out.println("|Kunden-ID: " + client.getId()
@@ -206,20 +186,22 @@ public class ESIFitApp {
 
     private static void displayEsiLogo() {
         System.out.print("┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐");
-        System.out.println("\n" +
-                "| ███████╗ ██████╗██╗      ███████╗██╗████████╗    █████╗ ██╗     ██╗███████╗███╗  ██╗████████╗   ███╗   ███╗ █████╗ ███╗  ██╗ █████╗  ██████╗ ███████╗██████╗  |\n" +
-                "| ██╔════╝██╔════╝██║      ██╔════╝██║╚══██╔══╝   ██╔══██╗██║     ||║██╔════╝████╗ ██║╚══██╔══╝   ████╗ ████║██╔══██╗████╗ ██║██╔══██╗██╔════╝ ██╔════╝██╔══██╗ |\n" +
-                "| █████╗  ╚█████╗ ██║█████╗█████╗  ██║   ██║      ██║  ╚═╝██║     ██║█████╗  ██╔██╗██║   ██║      ██╔████╔██║███████║██╔██╗██║███████║██║  ██╗ █████╗  ██████╔╝ |\n" +
-                "| ██╔══╝   ╚═══██╗██║╚════╝██╔══╝  ██║   ██║      ██║  ██╗██║     ██║██╔══╝  ██║╚████║   ██║      ██║╚██╔╝██║██╔══██║██║╚████║██╔══██║██║  ╚██╗██╔══╝  ██╔══██╗ |\n" +
-                "| ███████╗██████╔╝██║      ██║     ██║   ██║      ╚█████╔╝███████╗██║███████╗██║ ╚███║   ██║      ██║ ╚═╝ ██║██║  ██║██║ ╚███║██║  ██║╚██████╔╝███████╗██║  ██║ |\n" +
-                "| ╚══════╝╚═════╝ ╚═╝      ╚═╝     ╚═╝   ╚═╝       ╚════╝ ╚══════╝╚═╝╚══════╝╚═╝  ╚══╝   ╚═╝      ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚══╝╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝  ╚═╝ |");
+        System.out.println("""
+
+                | ███████╗ ██████╗██╗      ███████╗██╗████████╗    █████╗ ██╗     ██╗███████╗███╗  ██╗████████╗   ███╗   ███╗ █████╗ ███╗  ██╗ █████╗  ██████╗ ███████╗██████╗  |
+                | ██╔════╝██╔════╝██║      ██╔════╝██║╚══██╔══╝   ██╔══██╗██║     ||║██╔════╝████╗ ██║╚══██╔══╝   ████╗ ████║██╔══██╗████╗ ██║██╔══██╗██╔════╝ ██╔════╝██╔══██╗ |
+                | █████╗  ╚█████╗ ██║█████╗█████╗  ██║   ██║      ██║  ╚═╝██║     ██║█████╗  ██╔██╗██║   ██║      ██╔████╔██║███████║██╔██╗██║███████║██║  ██╗ █████╗  ██████╔╝ |
+                | ██╔══╝   ╚═══██╗██║╚════╝██╔══╝  ██║   ██║      ██║  ██╗██║     ██║██╔══╝  ██║╚████║   ██║      ██║╚██╔╝██║██╔══██║██║╚████║██╔══██║██║  ╚██╗██╔══╝  ██╔══██╗ |
+                | ███████╗██████╔╝██║      ██║     ██║   ██║      ╚█████╔╝███████╗██║███████╗██║ ╚███║   ██║      ██║ ╚═╝ ██║██║  ██║██║ ╚███║██║  ██║╚██████╔╝███████╗██║  ██║ |
+                | ╚══════╝╚═════╝ ╚═╝      ╚═╝     ╚═╝   ╚═╝       ╚════╝ ╚══════╝╚═╝╚══════╝╚═╝  ╚══╝   ╚═╝      ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚══╝╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝  ╚═╝ |""");
         System.out.println("└───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘");
     }
 
     private static void displayMainMenu() {
-        System.out.println("\n" +
-                "\t\t\t\t\t█▀▄▀█ ▄▀▄ █ █▄ █ ▄ █▀▄▀█ █▀▀ █▄ █ █ █\n" +
-                "\t\t\t\t\t█ ▀ █ █▀█ █ █ ▀█   █ ▀ █ ██▄ █ ▀█ █▄█");
+        System.out.println("""
+
+                \t\t\t\t\t█▀▄▀█ ▄▀▄ █ █▄ █ ▄ █▀▄▀█ █▀▀ █▄ █ █ █
+                \t\t\t\t\t█ ▀ █ █▀█ █ █ ▀█   █ ▀ █ ██▄ █ ▀█ █▄█""");
         System.out.println("\t\t\t┌" + "─".repeat(MAX_CHAR) + "┐");
         System.out.println("\t\t\t| \t\t\t\tESI-Fit Client Manager" + " ".repeat(MAX_CHAR - 37) + "|");
         System.out.println("\t\t\t├" + "─".repeat(MAX_CHAR) + "┤");
