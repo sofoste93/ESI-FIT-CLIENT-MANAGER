@@ -17,12 +17,10 @@ public class ClientService {
     }
 
     public Client registerClient(String firstName, String lastName) {
-        String id = IdGenerator.generateId() + firstName.substring(0, 2);
+        String id = IdGenerator.generateId() + firstName.substring(0, 2) + lastName.substring(0, 2);
         Client newClient = new Client(id, firstName, lastName);
         clients.put(id, newClient);
-
         saveClientData();
-
         return newClient;
     }
 
