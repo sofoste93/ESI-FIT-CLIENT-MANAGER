@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-06-13T07:39:32.669Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="p8wYmAkOIH49PFZYHi0w" version="21.3.8" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2023-06-13T07:40:10.550Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="tpRWvNvVp3YQ1OisZfJB" version="21.3.8" type="github" pages="2">
   <diagram name="Page-1" id="c4acf3e9-155e-7222-9cf6-157b1a14988f">
     <mxGraphModel dx="1050" dy="587" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#666666" math="0" shadow="1">
       <root>
@@ -7,7 +7,7 @@
         <mxCell id="17acba5748e5396b-1" value="frame" style="shape=umlFrame;whiteSpace=wrap;html=1;rounded=0;shadow=1;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=10;align=center;gradientColor=default;fillColor=default;strokeColor=#33001A;swimlaneFillColor=none;" parent="1" vertex="1">
           <mxGeometry x="40" y="87" width="1000" height="1233" as="geometry" />
         </mxCell>
-        <mxCell id="17acba5748e5396b-2" value="ESIFitApp&amp;nbsp;" style="swimlane;html=1;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;swimlaneFillColor=#ffffff;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=10;align=center;labelBorderColor=#000000;" parent="1" vertex="1">
+        <mxCell id="17acba5748e5396b-2" value="ESIFitApp&amp;nbsp;" style="swimlane;html=1;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;swimlaneFillColor=#ffffff;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=10;align=center;labelBorderColor=none;" parent="1" vertex="1">
           <mxGeometry x="420" y="187" width="170" height="108" as="geometry" />
         </mxCell>
         <mxCell id="wD1RXVULXasq6-dMUtr4-1" value="&lt;div style=&quot;font-family: &amp;quot;JetBrains Mono&amp;quot;, monospace; font-size: 9.8pt;&quot;&gt;&lt;span style=&quot;&quot;&gt;&lt;b style=&quot;&quot;&gt;&lt;font&gt;+ESIFITApp()&lt;/font&gt;&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;" style="text;html=1;strokeColor=#6F0000;fillColor=#FF3333;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#FFFFFF;labelBackgroundColor=none;" parent="17acba5748e5396b-2" vertex="1">
@@ -204,7 +204,7 @@
         <mxCell id="5Tmz0BL1EF1OMA91JaE--55" value="generateId():String" style="text;html=1;strokeColor=#005700;fillColor=#008a00;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#ffffff;" vertex="1" parent="5Tmz0BL1EF1OMA91JaE--51">
           <mxGeometry y="80" width="170" height="28" as="geometry" />
         </mxCell>
-        <mxCell id="5Tmz0BL1EF1OMA91JaE--60" value="ESIFitController" style="swimlane;html=1;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;swimlaneFillColor=#ffffff;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=10;align=center;labelBorderColor=#000000;" vertex="1" parent="1">
+        <mxCell id="5Tmz0BL1EF1OMA91JaE--60" value="ESIFitController" style="swimlane;html=1;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;swimlaneFillColor=#ffffff;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=10;align=center;labelBorderColor=none;" vertex="1" parent="1">
           <mxGeometry x="350" y="360" width="300" height="190" as="geometry" />
         </mxCell>
         <mxCell id="5Tmz0BL1EF1OMA91JaE--64" value="+mainWindowApp:VBox" style="text;html=1;strokeColor=#005700;fillColor=#008a00;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#ffffff;" vertex="1" parent="5Tmz0BL1EF1OMA91JaE--60">
