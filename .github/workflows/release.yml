@@ -78,9 +78,13 @@ jobs:
         if: matrix.platform != 'windows'
         run: bash scripts/package.sh app-image
 
-      - name: Check packaged Unix runtime
-        if: matrix.platform != 'windows'
+      - name: Check packaged Linux runtime
+        if: matrix.platform == 'linux'
         run: target/dist/ESI-FIT-Console/bin/ESI-FIT-Console --diagnostics
+
+      - name: Check packaged macOS runtime
+        if: matrix.platform == 'macos'
+        run: target/dist/ESI-FIT-Console.app/Contents/MacOS/ESI-FIT-Console --diagnostics
 
       - name: Build native Unix installer
         if: matrix.platform != 'windows'
